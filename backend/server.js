@@ -8,7 +8,7 @@ const app = express();
 dotenv.config();
 
 app.use(express.json()); //allows us to accept JSON data in the body of the requests
-app.use('/products', productRoutes);
+app.use('/api/products', productRoutes);
 
 app.listen(process.env.PORT, () => {
   connectDB();
