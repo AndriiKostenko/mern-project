@@ -4,12 +4,16 @@ import { connectDB } from './config/db.js';
 
 import productRoutes from './routes/products.route.js';
 import userRoutes from './routes/users.route.js';
+import cookieParser from 'cookie-parser';
+
 
 const app = express();
 dotenv.config();
 
 app.use(express.json()); //allows us to accept JSON data in the body of the requests
 app.use(express.urlencoded({ extended: true })); //allows us to accept URL encoded data in the body of the requests
+app.use(cookieParser()); //allows us to parse cookies from the requests
+
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 
